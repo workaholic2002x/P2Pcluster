@@ -175,6 +175,6 @@ Its a dream of all cloud access people to create and/or get a transparent route 
 The API for RAW data communication is created for high bandwidth Audio/Video transfer. Currently it supports one-one channel. Exemplary client program (C#) under testing. Once tested, shall share in git.
 
 Now, I am tired to type…..I shall update other aspects, now look at the API and try to use it. I need to write more.
-And needs testers.
+And it needs testers.
 
 Suggest new API or requirements.
