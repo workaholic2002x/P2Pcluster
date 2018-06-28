@@ -12,19 +12,19 @@ port: 80
 Connection Type: Raw
 
 2. Now, very fast (with in a minute), fire this command in putty console:
-Example: TCP:ID:11FE313037C5327CD35BAC6C8D66867F:123
-You must get a return statement something like [OK:123]
+Example: TCP:ID:11FE313037C5327CD35BAC6C8D66867F:12345
+You must get a return statement something like [OK:12345]
 
 3. Now open another putty console with same credentials as above and fire command with different ID. Something like
-TCP:ID:11FE313037C5327CD35BAC6C8D66867F:1234
-You must get the same reply [OK:1234]
+TCP:ID:11FE313037C5327CD35BAC6C8D66867F:123456789
+You must get the same reply [OK:123456789]
 
-4. Great. Now fire bellow command in any putty console (say, at console id-123)
-TCP:PUSH:11FE313037C5327CD35BAC6C8D66867F:RID:1234:Hello1234
+4. Great. Now fire bellow command in any putty console (say, at console id-12345)
+TCP:PUSH:11FE313037C5327CD35BAC6C8D66867F:RID:123456789:Hello12345
 
-5. The “Hello1234” should be sent to other console (with ID-1234).
+5. The “Hello12345” should be sent to other console (with ID-12345).
 Interesting?
-6 Now open another putty console with ID 12345.
+6 Now open another putty console with ID 123456.
 7. In any Putty console fire below command:
 TCP:PUSH:11FE313037C5327CD35BAC6C8D66867F:FRIENDS:Hello ALL
 8. You should get “Hello ALL” to all other putty consoles!
