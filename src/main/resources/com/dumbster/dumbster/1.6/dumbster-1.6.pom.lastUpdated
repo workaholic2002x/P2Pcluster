@@ -1,0 +1,18 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Thu Jan 12 23:22:50 IST 2017
+https\://jitpack.io/.error=
+http\://central.maven.org/maven2/.lastUpdated=1484137153007
+http\://repo.maven.apache.org/maven2/.lastUpdated=1484160158811
+http\://repository.springsource.com/maven/bundles/release/.error=
+http\://repository.springsource.com/maven/bundles/external/.error=
+https\://jitpack.io/.lastUpdated=1484242546224
+http\://repo.maven.apache.org/maven2/.error=
+https\://github.com/rjo1970/dumbster/.error=Could not transfer artifact com.dumbster\:dumbster\:pom\:1.6 from/to dumbster (https\://github.com/rjo1970/dumbster)\: Failed to transfer file\: https\://github.com/rjo1970/dumbster/com/dumbster/dumbster/1.6/dumbster-1.6.pom. Return code is\: 406 , ReasonPhrase\:Not Acceptable.
+default-https\://repository.jboss.org/nexus/content/groups/public/.lastUpdated=1484135264865
+default-https\://github.com/rjo1970/dumbster/.lastUpdated=1484243570102
+http\://repository.springsource.com/maven/bundles/external/.lastUpdated=1484130185074
+http\://repo1.maven.org/maven2/.lastUpdated=1484130100374
+http\://repo1.maven.org/maven2/.error=
+https\://repository.jboss.org/nexus/content/groups/public/.error=Could not transfer artifact com.dumbster\:dumbster\:pom\:1.6 from/to jboss (https\://repository.jboss.org/nexus/content/groups/public/)\: sun.security.validator.ValidatorException\: PKIX path building failed\: sun.security.provider.certpath.SunCertPathBuilderException\: unable to find valid certification path to requested target
+http\://repository.springsource.com/maven/bundles/release/.lastUpdated=1484130184783
+http\://central.maven.org/maven2/.error=
