@@ -1,0 +1,130 @@
+f****************** UbiPush API LIST *******************
+
+
+---------------------- 1 ACCOUNT --------------------------
+
+1.1 CREATE USER ACCOUNT
+
+ http://IPADDRESS/USER?username=abcd@abc.com&password=1234567890
+http://127.0.0.1:8083/USER?username=chandan@ubikeys.com&password=1234567890
+   [username must be a valid email id, password should be of 8 chars in length]
+     if( username does not exists)
+       Returns:Mail will be sent for activation and link creation.
+     else
+       Returns: Accound credentials will be e-mailed to user id including KEY
+
+
+1.2 DELETE USER ACCOUNT
+
+ http://IPADDRESS/USERDEL?username=abcd@abc.com&password=1234567890
+
+     if( username does not exists OR wrong credentials)
+       Returns:Invalid Credentials
+     else
+       Returns: Accound will be deleted. E-mailed will be sent to user id
+
+
+1.3 RESET PASSWORD
+
+ http://IPADDRESS/USERPASSRESET?username=abcd@abc.com&password=1234567890&newpassword=000111234
+
+     if( username does not exists OR wrong credentials)
+       Returns:Invalid Credentials
+     else
+       Returns: E-mailed will be sent to user id with new credentials. KEY will not be changed
+
+
+1.4 RESET KEY
+
+ http://IPADDRESS/USERKEYRESET?username=abcd@abc.com&password=1234567890
+
+     if( username does not exists OR wrong credentials)
+       Returns:Invalid Credentials
+     else
+
+       Returns: E-mailed will be sent to user id with new KEY credentials
+
+
+-------------------- 2 GROUP ----------------------------
+
+
+ 2.1 GET TREE
+      http://127.0.0.1:8083/GETTREE?KEY=AB39D0A49D2E92506B743FD7D4A1F83B
+      http://IPaddress/GETTREE?KEY=1234567890&NODE=1234
+         [If NODE ID provided, returns tree from that NODE else returns complete Tree]
+            Returns: {summary of nodes}Total Tree
+     
+    
+2.2 ADD NODE or SUB_NODE
+      http://IPaddress/ADDNODE?KEY=A876B688C52DD96980CD298CEA55BBDE&PNODE=1234
+      http://IPaddress/ADDNODE?KEY=1234567890&PNODE=1234&NODE=123
+         [PNODE=Parent Node; NODE=Child Node. Creation of Child node is optional]
+            Returns: {summary of nodes}Total Tree after addition of Node
+     
+    
+ 2.3 DELETE NODETREE
+      http://127.0.0.1:8083/DELNODE?KEY=A876B688C52DD96980CD298CEA55BBDE&NODE=chandan2002x@gmail.com
+         [All child of NODE-ID 1234 will be removed]
+          Returns: {summary of nodes}Total Tree after deletion of Node
+    
+ 2.4 UPDATE NODE
+      http://127.0.0.1:8083/DELNODE?KEY=A876B688C52DD96980CD298CEA55BBDE&OLDNODE=12345&NEWNODE=123456
+         [OLD NODE-ID will be updated as NEW NODE-ID ]
+           Returns: {summary of nodes}Total Tree after update of Node     
+           
+ 2.5 TREE DEPTH
+      http://127.0.0.1:8083/DEPTH?KEY=A876B688C52DD96980CD298CEA55BBDE
+         [The depth/level of the nodes in the tree]
+            Returns: Tree Depth
+     
+ 2.6 PARENT
+      http://127.0.0.1:8083/PARENT?KEY=A876B688C52DD96980CD298CEA55BBDE&NODE=1234
+            Returns: Prent of Node-ID 1234
+     
+ 2.7 CHILD
+      http://127.0.0.1:8083/CHILD?KEY=A876B688C52DD96980CD298CEA55BBDE&NODE=1234
+            Returns: All child nodes under node-ID 1234
+     
+
+-------------------- 3 MESSAGE SENDING ----------------------------
+
+3.1 Register ID
+	http://IPaddress/REGID?KEY=1234567890&SID=123456
+	     Returns: SUCCESS/FAIL:details of status
+
+	//TCP:ID:KEY:NODE_ID
+	// TCP:ID:4D45EA9CFD7E684A9927EDEBFFE18238:1234
+	TCP:ID:A876B688C52DD96980CD298CEA55BBDE:chandan2002x@gmail.com
+//TCP:ID:A876B688C52DD96980CD298CEA55BBDE:12345
+TCP:ID:A876B688C52DD96980CD298CEA55BBDE:12345
+
+	//BA9D52A52AE1BE41355B89533998B6E0
+	//TCP:ID:0000000000000000000000000000000:1234
+3.2 Get ID
+	http://IPaddress/GID?KEY=1234567890
+	     Returns: SUCCESS/FAIL:details of status
+	//TCP:GID:A876B688C52DD96980CD298CEA55BBDE
+3.3 REMOVE ID
+	http://IPaddress/REMID?KEY=1234567890
+	     Returns: SUCCESS/FAIL:details of status
+	//TCP:REMID:A876B688C52DD96980CD298CEA55BBDE
+
+
+3.4 Push Message
+     http://IPaddress/PUSH?KEY=1234567890&RNODE=ALL&MSG=[byte array]
+     http://IPaddress/PUSH?KEY=1234567890&RNODE=PARENT&MSG=[byte array]
+     http://IPaddress/PUSH?KEY=1234567890&RNODE=123,234,456,...&MSG=[byte array]
+
+     Returns: SUCCESS/FAIL:details of status
+
+TCP:PUSH:A876B688C52DD96980CD298CEA55BBDE:12345:Hello
+-------------------- 4 MESSAGE RECEIVING ----------------------------
+
+4.1 Message Receive
+	byte[] will be received as data which is formated as per user sent by user MSG format
+
+
+
+
+  String[] _xtemp=eachkey.split("\\|");
+              List<String> KeySubSet = (List) Arrays.asList(_xtemp);
