@@ -36,6 +36,7 @@ Some preamble:
 
 So, what are the common problems in traditional M2M scenario?
 
+
 High Level API and custom client stack (MQTT etc?):
 I know, you already know Google, Apple, Parse are there giving solution and you are finding ways how to use there API to use in your tiny hardware! Frankly speaking, Its too small tiny hardware and cant afford the high level APIs that those giants are providing for Tablet, mobile, desktops. Why those people cant give simple raw low level API too?? Abstraction? Yes, they have their own business model and security. But we need a low level raw TCP API, and hence, P2Pcluster is here. It is designed to support ALL KIND of IoT device, starting from a core running raw C or C++ or JAVA or NodeJS or Python…whatever hell running in any OS Android or Windows or Linux or NO-OS. That we intended to do.
 
