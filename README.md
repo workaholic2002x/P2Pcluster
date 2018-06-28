@@ -7,8 +7,8 @@ Here, we are talking about Global M2M mesh, where any machine can send message t
 Before you move forward, let me give the example that you need to start “doing” than “reading”
 
 1. Just open putty (Later on you can use any client) and set followings and save the profile (you may need to type again and again) and then Open connection.
-Hostname: push.ubikeys.com
-port: 8083
+Hostname: p2pcluster.org
+port: 80
 Connection Type: Raw
 
 2. Now, very fast (with in a minute), fire this command in putty console:
@@ -174,7 +174,17 @@ VIDEO: AUDIO:Transparent Channel: (23/04/2017)
 Its a dream of all cloud access people to create and/or get a transparent route to share our high bandwidth data. So, the requirements are pretty well defined. A client-client transparent channel with possibly high bandwidth. Here it is. New API version released with transparent channel where two client need to connect to PushServer and after couple of (precisely two) raw TCP API call, user will get a transparent channel.
 The API for RAW data communication is created for high bandwidth Audio/Video transfer. Currently it supports one-one channel. Exemplary client program (C#) under testing. Once tested, shall share in git.
 
-Now, I am tired to type…..I shall update other aspects, now look at the API and try to use it. I need to write more.
-And it needs testers.
+Server configuration:
+The p2pcluster repo is straightforward. Just dump it. Compile it and run.
+Before it comes in action you need to feed the port address and Email configuration at Server.conf inside /CONFIG directory
 
-Suggest new API or requirements.
+EMAIL={
+mail_smtp_host=
+mail_transport_protocol=smtp
+mail_smtp_auth=true
+mail_smtp_port=25
+USERNAME=
+PASSWORD=
+}
+
+The update will be made to work it in offline mode in a LAN environment.
