@@ -20,9 +20,9 @@ TCP:ID:11FE313037C5327CD35BAC6C8D66867F:1234
 You must get the same reply [OK:1234]
 
 4. Great. Now fire bellow command in any putty console (say, at console id-123)
-TCP:PUSH:11FE313037C5327CD35BAC6C8D66867F:RID:1234:Hello
+TCP:PUSH:11FE313037C5327CD35BAC6C8D66867F:RID:1234:Hello1234
 
-5. The “Hello” should be sent to other console (with ID-1234).
+5. The “Hello1234” should be sent to other console (with ID-1234).
 Interesting?
 6 Now open another putty console with ID 12345.
 7. In any Putty console fire below command:
