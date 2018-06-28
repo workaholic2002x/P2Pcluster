@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.PushServer</groupId>
+    <artifactId>mavenPush1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+         <packageName>com.pushserver.mavenpush1</packageName>
+         <mainClass>${packageName}.PushServer</mainClass>
+         
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+
+   <build>
+    <plugins>
+
+                 <!-- Maven Assembly Plugin 
+        
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+              <archive>
+                  <manifest>
+                      <mainClass>com.pushserver.mavenpush1.PushServer</mainClass>
+                  </manifest>
+              </archive>
+          </configuration>
+                                
+      </plugin>
+      
+      -->
+      
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+
+      <plugin>
+   <groupId>org.apache.maven.plugins</groupId>
+   <artifactId>maven-shade-plugin</artifactId>
+   <executions>
+      <execution>
+         <phase>package</phase>
+            <goals>
+               <goal>shade</goal>
+            </goals>
+      </execution>
+   </executions>
+   <configuration>
+      <finalName>${project.artifactId}-${project.version}-uber</finalName>
+      <filters>
+         <filter>
+            <artifact>*:*</artifact>
+               <excludes>
+                  <exclude>META-INF/*.SF</exclude>
+                  <exclude>META-INF/*.DSA</exclude>
+                  <exclude>META-INF/*.RSA</exclude>
+               </excludes>
+            </filter>
+         </filters>
+   </configuration>
+</plugin>
+      
+      <!-- Maven Assembly Plugin -->
+	
+        <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+            <execution>
+                <phase>install</phase>
+                <goals>
+                    <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                    
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+            <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                    <classpathPrefix>lib/</classpathPrefix>
+                    <mainClass>${mainClass}</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+    </plugin>
+        
+        
+  </plugins>
+</build>
+      
+
+            
+<dependencies>
+ 
+   
+    
+    <dependency>
+<groupId>org.mapdb</groupId>
+<artifactId>mapdb</artifactId>
+<version>2.0-beta13</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+        <groupId>de.flexiprovider</groupId>
+        <artifactId>flexiprovider</artifactId>
+        <version>1.7</version>
+    </dependency>
+    
+     <dependency>
+        <groupId>de.flexiproviderCoDec</groupId>
+        <artifactId>flexiproviderCoDec</artifactId>
+        <version>17</version>
+    </dependency>
+    <dependency>
+        <groupId>de.flexiproviderFhG-JCE</groupId>
+        <artifactId>flexiproviderFhG-JCE</artifactId>
+        <version>1.0.4</version>
+    </dependency>
+    
+    
+    <dependency>
+        <groupId>com.FileParser</groupId>
+        <artifactId>FileParse</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.mail</groupId>
+        <artifactId>mail</artifactId>
+        <version>1.0</version>
+       
+    </dependency>
+    
+   <dependency>
+        <groupId>com.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>1.0</version>
+       
+    </dependency>
+    
+<dependency>
+    <groupId>com.google.gdata</groupId>
+    <artifactId>core</artifactId>
+    <version>1.47.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.google.api-client</groupId>
+    <artifactId>google-api-client</artifactId>
+    <version>1.23.0</version>
+</dependency>
+<dependency>
+    <groupId>com.google.oauth-client</groupId>
+    <artifactId>google-oauth-client</artifactId>
+    <version>1.23.0</version>
+</dependency>
+<dependency>
+    <groupId>com.google.apis</groupId>
+    <artifactId>google-api-services-sheets</artifactId>
+    <version>v4-rev516-1.23.0</version>
+</dependency>    
+
+</dependencies>
+  
+ 
+  
+</project>
